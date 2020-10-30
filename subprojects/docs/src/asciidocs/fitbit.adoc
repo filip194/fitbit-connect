@@ -1,0 +1,32 @@
+= Fitbit API
+
+Following are the examples on how to use Fitbit API:
+
+== Register user on Fitbit
+
+This endpoint will actually be called from official FItbit API and we will get the code which can be used
+to obtain token for given user in our database.
+
+NOTE: Here, user is automatically registered by service in application, so we don't see the actual token response.
+
+.request
+include::{snippets}/register_user_on_fitbit/curl-request.adoc[]
+
+.response
+include::{snippets}/register_user_on_fitbit/http-response.adoc[]
+
+== Refreh Fitbit token
+
+.request
+include::{snippets}/refresh_fitbit_token/curl-request.adoc[]
+
+.response
+include::{snippets}/refresh_fitbit_token/http-response.adoc[]
+
+== Get user activities
+
+.request
+include::{snippets}/get_user_activities/curl-request.adoc[]
+
+.response
+include::{snippets}/get_user_activities/http-response.adoc[]

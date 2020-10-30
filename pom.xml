@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.5.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <packaging>pom</packaging>
+
+    <description>Fitbit Connect</description>
+    <groupId>hr.fitbit.demo.fitbitconnect</groupId>
+    <artifactId>fitbit-connect</artifactId>
+    <version>1.0.0-FITBIT-CONNECT</version>
+    <name>fitbit-connect</name>
+
+    <modules>
+        <module>${subprojects.folder}/api-support</module>
+        <module>${subprojects.folder}/application</module>
+        <module>${subprojects.folder}/dao</module>
+        <module>${subprojects.folder}/docs</module>
+        <module>${subprojects.folder}/fitbit-client</module>
+        <module>${subprojects.folder}/integration-test</module>
+        <module>${subprojects.folder}/security</module>
+        <module>${subprojects.folder}/test-support</module>
+        <module>${subprojects.folder}/users</module>
+    </modules>
+
+    <properties>
+        <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <subprojects.folder>subprojects</subprojects.folder>
+
+        <!-- dependency versions -->
+        <rest-assured.version>4.3.1</rest-assured.version>
+        <groovy.version>3.0.2</groovy.version>
+        <wiremock-jre8-standalone.version>2.27.1</wiremock-jre8-standalone.version>
+        <spring-cloud-contract-wiremock.version>2.2.4.RELEASE</spring-cloud-contract-wiremock.version>
+        <spring-restdocs-restassured.version>2.0.4.RELEASE</spring-restdocs-restassured.version>
+        <google-guava.version>29.0-jre</google-guava.version>
+        <lombok.version>1.18.12</lombok.version>
+        <springfox-swagger.version>2.9.2</springfox-swagger.version>
+        <aspectj.version>1.9.6</aspectj.version>
+        <checkstyle.version>8.34</checkstyle.version>
+
+        <!-- maven plugin versions -->
+        <asciidoctor-maven-plugin.version>2.0.0</asciidoctor-maven-plugin.version>
+        <maven-checkstyle-plugin.version>3.1.1</maven-checkstyle-plugin.version>
+        <maven-project-info-reports-plugin.version>3.1.1</maven-project-info-reports-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version>
+        <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
+        <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
+        <maven-resources-plugin>3.2.0</maven-resources-plugin>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven-install-plugin.version>3.0.0-M1</maven-install-plugin.version>
+        <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
+        <maven-site-plugin.version>3.9.1</maven-site-plugin.version>
+
+        <!-- snippets -->
+        <snippetsDirectory>${project.build.directory}/generated-snippets</snippetsDirectory>
+
+        <!-- local module versions -->
+        <local-module.version>1.0-SNAPSHOT</local-module.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>hr.fitbit.demo.fitbitconnect</groupId>
+                <artifactId>application</artifactId>
+                <version>${local-module.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>hr.fitbit.demo.fitbitconnect</groupId>
+                <artifactId>api-support</artifactId>
+                <version>${local-module.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>hr.fitbit.demo.fitbitconnect</groupId>
+                <artifactId>test-support</artifactId>
+                <version>${local-module.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>hr.fitbit.demo.fitbitconnect</groupId>
+                <artifactId>fitbit-client</artifactId>
+                <version>${local-module.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>hr.fitbit.demo.fitbitconnect</groupId>
+                <artifactId>security</artifactId>
+                <version>${local-module.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>hr.fitbit.demo.fitbitconnect</groupId>
+                <artifactId>users</artifactId>
+                <version>${local-module.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>hr.fitbit.demo.fitbitconnect</groupId>
+                <artifactId>dao</artifactId>
+                <version>${local-module.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>hr.fitbit.demo.fitbitconnect</groupId>
+                <artifactId>docs</artifactId>
+                <version>${local-module.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${google-guava.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <configuration>
+                        <mainClass>hr.fitbit.demo.fitbitconnect.FitbitConnectApplication</mainClass>
+                    </configuration>
+                </plugin>
+                <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>${maven-clean-plugin.version}</version>
+                </plugin>
+                <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>${maven-resources-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${maven-jar-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <compilerArgs>
+                            <!--<arg>-verbose</arg>-->
+                            <arg>-Xlint:unchecked</arg>
+                        </compilerArgs>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>${maven-install-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>${maven-deploy-plugin.version}</version>
+                </plugin>
+                <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>${maven-site-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>${maven-project-info-reports-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>${maven-checkstyle-plugin.version}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.puppycrawl.tools</groupId>
+                            <artifactId>checkstyle</artifactId>
+                            <version>${checkstyle.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+                <!-- BUILD HELPER MAVEN PLUGIN -->
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>${build-helper-maven-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>add-test-source</id>
+                            <phase>generate-test-sources</phase>
+                            <goals>
+                                <goal>add-test-source</goal>
+                            </goals>
+                            <configuration>
+                                <sources>
+                                    <source>{subprojects.folder}/integration-test/src/test/java</source>
+                                </sources>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- SUREFIRE (exclude integration tests from unit tests)-->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version>
+                    <configuration>
+                        <excludes>
+                            <exclude>**/*ApiTests.java</exclude>
+                        </excludes>
+                    </configuration>
+                </plugin>
+                <!-- FAILSAFE (include integration tests to build)-->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>${maven-failsafe-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>integration-test</id>
+                            <goals>
+                                <goal>integration-test</goal>
+                            </goals>
+                            <configuration>
+                                <includes>
+                                    <include>**/*ApiTests.class</include>
+                                </includes>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- ASCII DOCTOR -->
+                <plugin>
+                    <groupId>org.asciidoctor</groupId>
+                    <artifactId>asciidoctor-maven-plugin</artifactId>
+                    <version>${asciidoctor-maven-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>generate-docs</id>
+                            <phase>post-integration-test</phase>
+                            <goals>
+                                <goal>process-asciidoc</goal>
+                            </goals>
+                            <configuration>
+                                <backend>html</backend>
+                                <doctype>book</doctype>
+                                <attributes>
+                                    <snippets>${snippetsDirectory}</snippets>
+                                </attributes>
+                                <sourceDirectory>subprojects/docs/src/asciidocs</sourceDirectory>
+                                <outputDirectory>subprojects/docs/target/generated-docs</outputDirectory>
+                            </configuration>
+                        </execution>
+                    </executions>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.springframework.restdocs</groupId>
+                            <artifactId>spring-restdocs-asciidoctor</artifactId>
+                            <version>${spring-restdocs.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>

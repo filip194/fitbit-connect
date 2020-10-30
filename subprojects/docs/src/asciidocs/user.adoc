@@ -1,0 +1,51 @@
+= User API
+
+Following are the examples on how to use User API:
+
+== Register user
+
+.request
+include::{snippets}/register_user/curl-request.adoc[]
+
+.response
+include::{snippets}/register_user/http-response.adoc[]
+
+== Get user
+
+.request
+include::{snippets}/get_user_by_id/curl-request.adoc[]
+
+.response
+include::{snippets}/get_user_by_id/http-response.adoc[]
+
+== List all users
+
+.request
+include::{snippets}/list_all_users/curl-request.adoc[]
+
+.response
+include::{snippets}/list_all_users/http-response.adoc[]
+
+== Find user(s) by username
+
+.request
+include::{snippets}/find_users_by_username/curl-request.adoc[]
+
+.response
+include::{snippets}/find_users_by_username/http-response.adoc[]
+
+== Update user
+
+.request
+include::{snippets}/update_user/curl-request.adoc[]
+
+.response
+include::{snippets}/update_user/http-response.adoc[]
+
+== Delete user
+
+.request
+include::{snippets}/delete_user/curl-request.adoc[]
+
+.response
+include::{snippets}/delete_user/http-response.adoc[]

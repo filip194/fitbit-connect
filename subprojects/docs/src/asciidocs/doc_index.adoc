@@ -1,0 +1,57 @@
+= Fitbit Connect DEMO Application
+:revnumber: v0.1
+:revdate: 06.09.2020
+:revremark: First draft
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+:sectlinks:
+:description: Fitbit Connect DEMO API documentation
+:keywords: Fitbit, Demo, OAuth2, Spring Boot, Java
+:imagesdir: ../img
+
+[[overview]]
+== Introduction
+
+Fitbit Connect DEMO enables you to register, search, update and delete users, and it enables you to register your user on Fitbit
+and collect data from Fitbit that user produces.
+Tracking user activities is the only Fitbit feature of this app for now.
+
+NOTE: This application is made with a learning purpose in mind while using Spring Boot with maven, documenting the APIs,
+searching, paging and sorting the result sets, security and a lot more.
+
+[[overview-http-verbs]]
+== HTTP
+
+HTTP methods used in APIs:
+
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve a resource
+
+| `POST`
+| Used to create a new resource
+
+| `PUT`
+| Used to update an existing resource.
+
+| `DELETE`
+| Used to delete an existing resource.
+|===
+
+:leveloffset: +1
+
+include::user.adoc[]
+
+:leveloffset: -1
+
+
+:leveloffset: +1
+
+include::fitbit.adoc[]
+
+:leveloffset: -1
