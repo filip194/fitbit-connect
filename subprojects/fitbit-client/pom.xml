@@ -2,9 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
-        <artifactId>fitbit-connect</artifactId>
         <groupId>hr.fitbit.demo.fitbitconnect</groupId>
+        <artifactId>fitbit-connect</artifactId>
         <version>1.0.0-FITBIT-CONNECT</version>
     </parent>
 
@@ -15,18 +16,7 @@
     <name>fitbit-client</name>
 
     <dependencies>
-        <dependency>
-            <groupId>hr.fitbit.demo.fitbitconnect</groupId>
-            <artifactId>dao</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>hr.fitbit.demo.fitbitconnect</groupId>
-            <artifactId>api-support</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>hr.fitbit.demo.fitbitconnect</groupId>
-            <artifactId>security</artifactId>
-        </dependency>
+        <!-- spring boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
@@ -34,11 +24,6 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>hr.fitbit.demo.fitbitconnect</groupId>
-            <artifactId>test-support</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -52,7 +37,34 @@
                 </exclusion>
             </exclusions>
         </dependency>
-    </dependencies>
 
+        <!-- fitbit connect -->
+        <dependency>
+            <groupId>hr.fitbit.demo.fitbitconnect</groupId>
+            <artifactId>dao</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>hr.fitbit.demo.fitbitconnect</groupId>
+            <artifactId>api-support</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>hr.fitbit.demo.fitbitconnect</groupId>
+            <artifactId>security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>hr.fitbit.demo.fitbitconnect</groupId>
+            <artifactId>test-support</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- rest -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
 
 </project>

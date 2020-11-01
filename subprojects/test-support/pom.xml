@@ -2,12 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
     <parent>
-        <artifactId>fitbit-connect</artifactId>
         <groupId>hr.fitbit.demo.fitbitconnect</groupId>
+        <artifactId>fitbit-connect</artifactId>
         <version>1.0.0-FITBIT-CONNECT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
     <artifactId>test-support</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -16,20 +17,7 @@
     <name>test-support</name>
 
     <dependencies>
-        <dependency>
-            <groupId>hr.fitbit.demo.fitbitconnect</groupId>
-            <artifactId>api-support</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.github.tomakehurst</groupId>
-            <artifactId>wiremock-jre8-standalone</artifactId>
-            <version>${wiremock-jre8-standalone.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-contract-wiremock</artifactId>
-            <version>${spring-cloud-contract-wiremock.version}</version>
-        </dependency>
+        <!-- spring boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-json</artifactId>
@@ -43,6 +31,24 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <!-- fitbit connect -->
+        <dependency>
+            <groupId>hr.fitbit.demo.fitbitconnect</groupId>
+            <artifactId>api-support</artifactId>
+        </dependency>
+
+        <!-- rest -->
+        <dependency>
+            <groupId>com.github.tomakehurst</groupId>
+            <artifactId>wiremock-jre8-standalone</artifactId>
+            <version>${wiremock-jre8-standalone.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-contract-wiremock</artifactId>
+            <version>${spring-cloud-contract-wiremock.version}</version>
         </dependency>
     </dependencies>
 
