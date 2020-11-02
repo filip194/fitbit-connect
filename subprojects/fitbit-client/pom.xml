@@ -54,7 +54,6 @@
         <dependency>
             <groupId>hr.fitbit.demo.fitbitconnect</groupId>
             <artifactId>test-support</artifactId>
-            <scope>test</scope>
         </dependency>
 
         <!-- rest -->
