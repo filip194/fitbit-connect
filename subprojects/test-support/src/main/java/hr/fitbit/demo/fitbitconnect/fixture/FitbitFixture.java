@@ -54,17 +54,15 @@ public class FitbitFixture {
     }
 
     private static String createScope() {
-        final StringBuilder scope = new StringBuilder(9);
-        scope.append("heartrate ");
-        scope.append("sleep ");
-        scope.append("profile ");
-        scope.append("social ");
-        scope.append("settings ");
-        scope.append("location ");
-        scope.append("activity ");
-        scope.append("nutrition ");
-        scope.append("weight");
-        return scope.toString();
+        return "heartrate " +
+                "sleep " +
+                "profile " +
+                "social " +
+                "settings " +
+                "location " +
+                "activity " +
+                "nutrition " +
+                "weight";
     }
 }
 

@@ -214,8 +214,8 @@
                                 <attributes>
                                     <snippets>${snippetsDirectory}</snippets>
                                 </attributes>
-                                <sourceDirectory>subprojects/docs/src/asciidocs</sourceDirectory>
-                                <outputDirectory>subprojects/docs/target/generated-docs</outputDirectory>
+                                <sourceDirectory>{subprojects.folder}/docs/src/asciidocs</sourceDirectory>
+                                <outputDirectory>{subprojects.folder}/docs/target/generated-docs</outputDirectory>
                             </configuration>
                         </execution>
                     </executions>

@@ -21,11 +21,28 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
 
         <!-- fitbit connect -->
         <dependency>
             <groupId>hr.fitbit.demo.fitbitconnect</groupId>
             <artifactId>api-support</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>hr.fitbit.demo.fitbitconnect</groupId>
+            <artifactId>dao</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>hr.fitbit.demo.fitbitconnect</groupId>
+            <artifactId>fitbit-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>hr.fitbit.demo.fitbitconnect</groupId>
+            <artifactId>security</artifactId>
         </dependency>
         <dependency>
             <groupId>hr.fitbit.demo.fitbitconnect</groupId>
@@ -35,16 +52,8 @@
             <groupId>hr.fitbit.demo.fitbitconnect</groupId>
             <artifactId>users</artifactId>
         </dependency>
-        <dependency>
-            <groupId>hr.fitbit.demo.fitbitconnect</groupId>
-            <artifactId>fitbit-client</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>hr.fitbit.demo.fitbitconnect</groupId>
-            <artifactId>dao</artifactId>
-        </dependency>
 
-        <!-- rest -->
+        <!-- the rest -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
@@ -68,7 +77,6 @@
             <artifactId>spring-restdocs-restassured</artifactId>
             <version>${spring-restdocs-restassured.version}</version>
         </dependency>
-
     </dependencies>
 
 </project>

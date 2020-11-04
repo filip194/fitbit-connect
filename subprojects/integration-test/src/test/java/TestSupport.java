@@ -36,6 +36,9 @@ import static io.restassured.RestAssured.given;
 
 @ContextConfiguration(classes = TestApplication.class)
 @ExtendWith({RestDocumentationExtension.class, SpringExtension.class})
+@AutoConfigureTestDatabase
+@AutoConfigureRestDocs
+@AutoConfigureWireMock(port = 2345)
 @SpringBootTest(
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
         properties = {
@@ -43,10 +46,9 @@ import static io.restassured.RestAssured.given;
                 "fitbit.client.id=test_username",
                 "fitbit.client.secret=test_password",
                 "fitbit.authorization.uri=http://localhost:2345/oauth2/authorize",
-                "fitbit.base.api.uri=http://localhost:2345"})
-@AutoConfigureTestDatabase
-@AutoConfigureRestDocs
-@AutoConfigureWireMock(port = 2345)
+                "fitbit.base.api.uri=http://localhost:2345",
+                "app.release.version=0.0",
+                "app.build.version=FITBIT.TEST"})
 public abstract class TestSupport {
 
     protected final static String USERNAME_ADMIN = "admin";

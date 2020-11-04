@@ -56,9 +56,6 @@
             <artifactId>test-support</artifactId>
             <scope>test</scope>
         </dependency>
-
-        <!-- rest -->
-
     </dependencies>
 
     <properties>

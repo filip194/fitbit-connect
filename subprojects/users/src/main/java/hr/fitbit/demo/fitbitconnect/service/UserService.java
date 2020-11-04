@@ -29,8 +29,6 @@ import java.util.stream.Stream;
 @Service
 public class UserService {
 
-    private static final Logger LOG = LoggerFactory.getLogger(UserService.class);
-
     private UserRepository userRepository;
     private RoleRepository roleRepository;
     private PasswordEncoder passwordEncoder;

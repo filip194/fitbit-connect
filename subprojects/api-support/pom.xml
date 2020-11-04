@@ -41,7 +41,7 @@
             </exclusions>
         </dependency>
 
-        <!-- rest -->
+        <!-- the rest -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
