@@ -1,6 +1,6 @@
 = Fitbit Connect DEMO Application
-:revnumber: v0.1
-:revdate: 06.09.2020
+:revnumber: v1.0
+:revdate: 04.11.2020
 :revremark: First draft
 :doctype: book
 :icons: font

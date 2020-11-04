@@ -5,6 +5,7 @@ This is a training Spring Boot 2 multi-module Maven application with connection 
 ## Table of contents
 
 - [General](#general)
+- [Starting application](#starting-application)
 - [Storage](#storage)
 - [Security](#security)
 - [Technologies used](#technologies-used)
@@ -14,9 +15,9 @@ This is a training Spring Boot 2 multi-module Maven application with connection 
 
 This application provides two APIs: _users_ and _fitbit_.
 
-_users_ API enables user registration, user search, user update and deletion.
+**users** API enables user registration, user search, user update and deletion.
 
-_fitbit_ API obtaining OAuth2 JWT token, refreshing token and getting user activities.
+**fitbit** API obtaining OAuth2 JWT token, refreshing token and getting user activities.
 
 Both of these APIs are governed by security roles and as such can only be accessed by specific users.
 For this demo case there are some preinstalled users when running app with H2 profile: admin 123.
@@ -27,11 +28,16 @@ database. Accounts are connected once user logs into official Fitbit webapage an
 Token is then saved into selected database alongside user Fitbit ID and can be used later to get user activities.
 Now, if you login as ADMIN, you can get user activity data from Fitbit for specific user.
 
+### Starting application
+
+To start the application you will need to go into application.properties in application module and provide
+_fitbit.client.id_ and _fitbit.client.secret_, which you will obtain while registering new app on Fitbit Dev.
+
 ### Documentation
 
 Documentation is automatically generated from integration tests, mostly by implementing code snippets created while
 running integration tests. This is achieved by using REST Assured and Asciidoctor.
-API documentation available at: http://localhost:9090/docs/doc_index.html.
+API documentation available at e.g.: http://localhost:9090/docs/doc_index.html.
 
 For now, docs are manually pasted into static resources.
 
