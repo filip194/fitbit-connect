@@ -9,7 +9,7 @@
 :toclevels: 3
 :sectlinks:
 :description: Fitbit Connect DEMO API documentation
-:keywords: Fitbit, Demo, OAuth2, Spring Boot, Java
+:keywords: Fitbit, OAuth2, Spring Boot, Java, PostgreSQL, Flyway, H2, Lombok, Maven, Swagger
 :imagesdir: ../img
 
 [[overview]]
