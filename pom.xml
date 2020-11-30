@@ -245,8 +245,8 @@
         <!-- dependency versions -->
         <rest-assured.version>4.3.1</rest-assured.version>
         <groovy.version>3.0.2</groovy.version>
-        <wiremock-jre8-standalone.version>2.27.1</wiremock-jre8-standalone.version>
-        <spring-cloud-contract-wiremock.version>2.2.4.RELEASE</spring-cloud-contract-wiremock.version>
+        <wiremock-jre8-standalone.version>2.27.2</wiremock-jre8-standalone.version>
+        <spring-cloud-contract-wiremock.version>2.2.5.RELEASE</spring-cloud-contract-wiremock.version>
         <spring-restdocs-restassured.version>2.0.4.RELEASE</spring-restdocs-restassured.version>
         <google-guava.version>29.0-jre</google-guava.version>
         <lombok.version>1.18.12</lombok.version>

@@ -75,13 +75,13 @@ public abstract class TestSupport {
     protected String uri;
     protected RequestSpecification documentationSpec;
 
-    @LocalServerPort
-    protected int port;
-
     protected abstract String getPath();
 
+    @LocalServerPort
+    private int port;
+
     @PostConstruct
-    public void init() {
+    private void initUri() {
         uri = "http://localhost:" + port;
     }
 

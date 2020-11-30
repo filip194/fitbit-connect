@@ -1,5 +1,4 @@
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import hr.fitbit.demo.fitbitconnect.apimodel.fitbit.TokenResponse;
 import hr.fitbit.demo.fitbitconnect.apimodel.fitbit.UserActivityResponse;
 import hr.fitbit.demo.fitbitconnect.client.FitbitClient;
@@ -10,7 +9,6 @@ import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -29,16 +27,10 @@ public class FitbitApiTests extends TestSupport {
 
     private static final String FITBIT_API_PATH = "/api/fitbit";
 
-    @Autowired
-    protected ObjectMapper mapper;
-
     protected RestTemplate restTemplate;
 
     @Autowired
     private FitbitClient fitbitClient;
-
-    @Value("${wiremock.server.port}")
-    private int port;
 
     @BeforeEach
     public void setup() {
@@ -54,7 +46,7 @@ public class FitbitApiTests extends TestSupport {
         createUser(USERNAME_ADMIN, PASSWORD, UserType.ADMIN.name(), NAME, LAST_NAME, EMAIL, AGE);
 
         final TokenResponse tokenResponse = FitbitFixture.createFitbitTokenResponse();
-        final String tokenResponseString = mapper.writeValueAsString(tokenResponse);
+        final String tokenResponseString = objectMapper.writeValueAsString(tokenResponse);
 
         TokenFixture.createTokenStub(tokenResponseString, wiremockPort);
 
@@ -80,7 +72,7 @@ public class FitbitApiTests extends TestSupport {
                 .extract().body().jsonPath().getUUID("user_id");
 
         final TokenResponse tokenResp = FitbitFixture.createFitbitTokenResponse();
-        final String tokenRespString = mapper.writeValueAsString(tokenResp);
+        final String tokenRespString = objectMapper.writeValueAsString(tokenResp);
 
         TokenFixture.createTokenStub(tokenRespString, wiremockPort);
 
@@ -93,7 +85,7 @@ public class FitbitApiTests extends TestSupport {
                 .statusCode(HttpStatus.OK.value());
 
         final TokenResponse tokenResponse = FitbitFixture.createFitbitTokenResponseRefreshed();
-        final String tokenResponseString = mapper.writeValueAsString(tokenResponse);
+        final String tokenResponseString = objectMapper.writeValueAsString(tokenResponse);
 
         TokenFixture.createTokenStub(tokenResponseString, wiremockPort);
 
@@ -123,7 +115,7 @@ public class FitbitApiTests extends TestSupport {
                 .extract().body().jsonPath().getUUID("user_id");
 
         final TokenResponse tokenResp = FitbitFixture.createFitbitTokenResponse();
-        final String tokenRespString = mapper.writeValueAsString(tokenResp);
+        final String tokenRespString = objectMapper.writeValueAsString(tokenResp);
 
         TokenFixture.createTokenStub(tokenRespString, wiremockPort);
 
@@ -136,7 +128,7 @@ public class FitbitApiTests extends TestSupport {
                 .statusCode(HttpStatus.OK.value());
 
         final UserActivityResponse activityResponse = FitbitFixture.createFitbitActivityResponse();
-        final String activityResponseString = mapper.writeValueAsString(activityResponse);
+        final String activityResponseString = objectMapper.writeValueAsString(activityResponse);
 
         TokenFixture.createUserActivitiesStub(activityResponseString, tokenResp.getUserId(), tokenResp.getAccessToken());
 

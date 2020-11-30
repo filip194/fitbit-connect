@@ -9,8 +9,6 @@ import hr.fitbit.demo.fitbitconnect.entity.UserEntity;
 import hr.fitbit.demo.fitbitconnect.repository.RoleRepository;
 import hr.fitbit.demo.fitbitconnect.repository.UserRepository;
 import hr.fitbit.demo.fitbitconnect.util.UserType;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
