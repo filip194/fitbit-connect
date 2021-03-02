@@ -12,9 +12,9 @@
 
     <artifactId>integration-test</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <name>integration test</name>
     <packaging>jar</packaging>
 
-    <name>integration-test</name>
 
     <dependencies>
         <!-- spring boot -->
@@ -82,6 +82,14 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <classifier>exec</classifier>
+                </configuration>
+            </plugin>
+
             <!-- BUILD HELPER MAVEN PLUGIN -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>

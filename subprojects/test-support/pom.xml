@@ -13,9 +13,9 @@
 
     <artifactId>test-support</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <name>test support</name>
     <packaging>jar</packaging>
 
-    <name>test-support</name>
 
     <dependencies>
         <!-- spring boot -->
@@ -52,5 +52,17 @@
             <version>${spring-cloud-contract-wiremock.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <classifier>exec</classifier>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

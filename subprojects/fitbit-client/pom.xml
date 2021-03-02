@@ -12,9 +12,9 @@
 
     <artifactId>fitbit-client</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <name>fitbit client</name>
     <packaging>jar</packaging>
 
-    <name>fitbit-client</name>
 
     <dependencies>
         <!-- spring boot -->
@@ -65,5 +65,17 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <classifier>exec</classifier>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

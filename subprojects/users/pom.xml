@@ -12,9 +12,9 @@
 
     <artifactId>users</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <name>users</name>
     <packaging>jar</packaging>
 
-    <name>users</name>
 
     <dependencies>
         <!-- spring boot -->
@@ -59,44 +59,16 @@
         </dependency>
     </dependencies>
 
-    <properties>
-        <java.version>11</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <subprojects.folder>subprojects</subprojects.folder>
-
-        <!-- dependency versions -->
-        <rest-assured.version>4.3.1</rest-assured.version>
-        <groovy.version>3.0.2</groovy.version>
-        <wiremock-jre8-standalone.version>2.27.1</wiremock-jre8-standalone.version>
-        <spring-cloud-contract-wiremock.version>2.2.4.RELEASE</spring-cloud-contract-wiremock.version>
-        <spring-restdocs-restassured.version>2.0.4.RELEASE</spring-restdocs-restassured.version>
-        <google-guava.version>29.0-jre</google-guava.version>
-        <lombok.version>1.18.12</lombok.version>
-        <springfox-swagger.version>2.9.2</springfox-swagger.version>
-        <aspectj.version>1.9.6</aspectj.version>
-        <checkstyle.version>8.34</checkstyle.version>
-
-        <!-- maven plugin versions -->
-        <asciidoctor-maven-plugin.version>2.0.0</asciidoctor-maven-plugin.version>
-        <maven-checkstyle-plugin.version>3.1.1</maven-checkstyle-plugin.version>
-        <maven-project-info-reports-plugin.version>3.1.1</maven-project-info-reports-plugin.version>
-        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
-        <maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version>
-        <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
-        <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
-        <maven-resources-plugin>3.2.0</maven-resources-plugin>
-        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-        <maven-install-plugin.version>3.0.0-M1</maven-install-plugin.version>
-        <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
-        <maven-site-plugin.version>3.9.1</maven-site-plugin.version>
-
-        <!-- snippets -->
-        <snippetsDirectory>${project.build.directory}/generated-snippets</snippetsDirectory>
-
-        <!-- local module versions -->
-        <local-module.version>1.0-SNAPSHOT</local-module.version>
-    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <classifier>exec</classifier>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

@@ -20,13 +20,13 @@ This application provides two APIs: _users_ and _fitbit_.
 **fitbit** API obtaining OAuth2 JWT token, refreshing token and getting user activities.
 
 Both of these APIs are governed by security roles and as such can only be accessed by specific users.
-For this demo case there are some preinstalled users when running app with H2 profile: admin 123.
-This user can grant you all roles.
+For this demo case there are some preinstalled users when running app with H2 profile: 'admin', '123'.
+This user is granted all roles.
 
 The application allows users to create account and login to Fitbit, connecting both accounts internally in selected
-database. Accounts are connected once user logs into official Fitbit webapage and Fitbit Connect obtaines its token. 
+database. Accounts are connected once user logs into official Fitbit webpage and Fitbit Connect obtaines its token. 
 Token is then saved into selected database alongside user Fitbit ID and can be used later to get user activities.
-Now, if you login as ADMIN, you can get user activity data from Fitbit for specific user.
+Now, if you log in as ADMIN, you can get user activity data from Fitbit for each user.
 
 ### Starting application
 
@@ -45,7 +45,7 @@ For now, docs are manually pasted into static resources.
 
 Fitbit Connect is using H2 in-memory database for developing purposes, and PostgreSQL database can be used in production
 purposes. This is just an example of different databases being used for different scenarios.
-Beside, Flyway database migration is used to show how to migrate databases between versions/updates.
+Also, Flyway database migration is used to show how to migrate databases between versions/updates.
 
 Data stored in database can be obtained by visiting swagger (e.g. http://localhost:9090/swagger-ui.html), and for
 example, getting users can be done searching by username, and/or combined with paging (page size and page number).
@@ -58,7 +58,7 @@ Security is implemented as basic security with usage of Bcrypt for storing passw
  - USER - searches users by ID or username 
  - MODERATOR - role not implemented; placeholder
  - ADMIN - all USER authorities + can update and delete users; can collect user activity data by obtaining it 
- from Fitbit API service once user has registered and logged into Fitbit
+ over Fitbit API once user has registered and logged into Fitbit
  
 ### Technologies used
 

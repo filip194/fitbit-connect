@@ -12,9 +12,8 @@
 
     <artifactId>api-support</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <name>api support</name>
     <packaging>jar</packaging>
-
-    <name>api-support</name>
 
     <dependencies>
         <!-- spring boot -->
@@ -70,5 +69,17 @@
             <version>${springfox-swagger.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <classifier>exec</classifier>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

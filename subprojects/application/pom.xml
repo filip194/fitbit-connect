@@ -12,9 +12,9 @@
 
     <artifactId>application</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <name>application</name>
     <packaging>jar</packaging>
 
-    <name>application</name>
 
     <dependencies>
         <!-- spring boot -->
@@ -89,5 +89,17 @@
             <artifactId>test-support</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <classifier>exec</classifier>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
