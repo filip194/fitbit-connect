@@ -8,7 +8,7 @@ This is a training Spring Boot 2 multi-module Maven application with connection 
 - [Starting application](#starting-application)
 - [Storage](#storage)
 - [Security](#security)
-- [Technologies used](#technologies-used)
+- [Tech stack](#tech-stack)
 - [Notice](#notice)
 
 ### General
@@ -52,7 +52,7 @@ Fitbit Connect is using H2 in-memory database for developing purposes, and Postg
 purposes. This is just an example of different databases being used for different scenarios.
 Also, Flyway database migration is used to show how to migrate databases between versions/updates.
 
-Data stored in database can be obtained by visiting swagger (e.g. http://localhost:9090/swagger-ui.html), and for
+Data stored in database can be obtained by visiting swagger (e.g. http://localhost:9090/swagger-ui/), and for
 example, getting users can be done searching by username, and/or combined with paging (page size and page number).
 Data can also be sorted ASC or DESC by username.
 
@@ -65,7 +65,7 @@ Security is implemented as basic security with usage of Bcrypt for storing passw
  - ADMIN - all USER authorities + can update and delete users; can collect user activity data by obtaining it 
  over Fitbit API once user has registered and logged into Fitbit
  
-### Technologies used
+### Tech stack
 
 - Spring Boot 2
 - Maven
@@ -80,7 +80,7 @@ Security is implemented as basic security with usage of Bcrypt for storing passw
 - AOP:
     - AspectJ (used for service logging)
 - API exposure:
-    - Swagger OpenAPI Specification 3 (http://localhost:9090/swagger-ui/)
+    - SpringFox Swagger OpenAPI Specification 3
 - Documentation:
     - Spring REST Docs (Asciidoctor)
 - Testing:
