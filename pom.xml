@@ -246,7 +246,7 @@
         <spring-restdocs-restassured.version>2.0.4.RELEASE</spring-restdocs-restassured.version>
         <google-guava.version>29.0-jre</google-guava.version>
         <lombok.version>1.18.12</lombok.version>
-        <springfox-swagger.version>2.9.2</springfox-swagger.version>
+        <springfox-swagger.version>3.0.0</springfox-swagger.version>
         <aspectj.version>1.9.6</aspectj.version>
         <checkstyle.version>8.34</checkstyle.version>
 

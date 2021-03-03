@@ -20,10 +20,10 @@ This application provides two APIs: _users_ and _fitbit_.
 **fitbit** API obtaining OAuth2 JWT token, refreshing token and getting user activities.
 
 Both of these APIs are governed by security roles and as such can only be accessed by specific users.
-For this demo case there are some preinstalled users when running app with H2 profile: 'admin', '123'.
-This user is granted all roles.
+For this demo case there are some preinstalled users when running app with H2 profile [admin, 123].
+This user is granted all roles when logs in.
 
-The application allows users to create account and login to Fitbit, connecting both accounts internally in selected
+The application allows users to create account and login to Fitbit, connecting both accounts internally in a selected
 database. Accounts are connected once user logs into official Fitbit webpage and Fitbit Connect obtaines its token. 
 Token is then saved into selected database alongside user Fitbit ID and can be used later to get user activities.
 Now, if you log in as ADMIN, you can get user activity data from Fitbit for each user.
@@ -40,6 +40,11 @@ running integration tests. This is achieved by using REST Assured and Asciidocto
 API documentation available at e.g.: http://localhost:9090/docs/doc_index.html.
 
 For now, docs are manually pasted into static resources.
+
+### Swagger-UI
+
+http://localhost:9090/swagger-ui/ is the base url for the API.
+Swagger is available only to admin [admin, 123].
 
 ### Storage
 
@@ -75,7 +80,7 @@ Security is implemented as basic security with usage of Bcrypt for storing passw
 - AOP:
     - AspectJ (used for service logging)
 - API exposure:
-    - Swagger 2 (can be visited e.g.: http://localhost:9090/swagger-ui.html)
+    - Swagger OpenAPI Specification 3 (http://localhost:9090/swagger-ui/)
 - Documentation:
     - Spring REST Docs (Asciidoctor)
 - Testing:

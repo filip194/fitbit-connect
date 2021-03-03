@@ -17,7 +17,6 @@ import java.util.Objects;
 
 public class PaginationSetup {
 
-    private static final String X_TOTAL_COUNT = "X-Total-Count";
     private static final String FIRST = "first";
     private static final String LAST = "last";
     private static final String NEXT = "next";
@@ -25,6 +24,9 @@ public class PaginationSetup {
     private static final String PAGE = "page";
     private static final String SIZE = "size";
     private static final String SORT = "sort";
+    // headers
+    private static final String X_TOTAL_COUNT = "X-Total-Count";
+    private static final String LINK = "Link";
 
     public static <T> ResponseEntity<List<T>> returnContentAndHeadersWithPagination(
             final Page<T> page, final HttpServletRequest request) {
@@ -67,7 +69,7 @@ public class PaginationSetup {
             }
 
             if (!links.isEmpty()) {
-                httpHeaders.add(com.google.common.net.HttpHeaders.LINK, Links.of(links).toString());
+                httpHeaders.add(LINK, Links.of(links).toString());
             }
         }
         return httpHeaders;

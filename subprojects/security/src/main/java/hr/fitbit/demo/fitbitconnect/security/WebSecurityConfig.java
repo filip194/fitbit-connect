@@ -37,19 +37,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // allow for all
                 .antMatchers("/error/**").permitAll()
                 .antMatchers("/api/users/register").permitAll()
-                .antMatchers("/swagger-ui.html**").permitAll()
                 .antMatchers("/swagger-resources/**").permitAll()
                 .antMatchers("/v2/api-docs").permitAll()
                 .antMatchers("/docs/**").permitAll()
                 // allow only for admin
 //                .antMatchers("/h2-console**").hasRole(UserAuthority.ADMIN.name())
                 // allow for registered users
+                .antMatchers("/swagger-ui/**").hasRole(UserAuthority.ADMIN.name())
                 .antMatchers("/").hasRole(UserAuthority.AUTHENTICATED_USER.name())
                 .and()
                 .httpBasic()
                 .realmName("Fitbit Connect");
 
-//        logout not enabled for now, using stateless session for security
+//        logout not enabled for now
 //                .and()
 //                .logout();
 
