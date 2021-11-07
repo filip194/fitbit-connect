@@ -1,4 +1,4 @@
-# Fitbit Connect (multi-module)
+# Fitbit Connect (Spring Boot 2 multi-module Fitbit REST client)
 
 This is a training Spring Boot 2 multi-module Maven application with connection to Fitbit API over OAuth2.
 
