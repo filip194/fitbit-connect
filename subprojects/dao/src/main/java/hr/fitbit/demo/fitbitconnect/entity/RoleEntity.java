@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.UUID;
 
 @Entity(name = "roles")
-@Table(uniqueConstraints = {
+@Table(name = "roles", uniqueConstraints = {
         @UniqueConstraint(columnNames = {"role_id", "name"}, name = "role_id_and_name_unique")
 })
 @Getter
