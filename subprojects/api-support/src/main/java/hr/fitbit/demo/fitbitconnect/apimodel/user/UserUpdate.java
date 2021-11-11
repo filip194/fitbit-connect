@@ -22,6 +22,8 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class UserUpdate implements Serializable {
 
+    private static final long serialVersionUID = 5313493413859894493L;
+
     @Size(min = 1, max = 50)
     @Nationalized
     @ApiModelProperty(value = "password", position = 1, example = "password")

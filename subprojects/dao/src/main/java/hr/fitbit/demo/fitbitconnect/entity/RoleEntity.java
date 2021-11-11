@@ -21,6 +21,8 @@ import java.util.UUID;
 @AllArgsConstructor
 public class RoleEntity implements Serializable {
 
+    private static final long serialVersionUID = 5313493413859894495L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pk_roles_generator")
     @SequenceGenerator(name = "pk_roles_generator", sequenceName = "pk_roles_seq", allocationSize = 1)

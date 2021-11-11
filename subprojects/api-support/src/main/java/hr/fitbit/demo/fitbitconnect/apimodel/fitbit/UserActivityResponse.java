@@ -18,6 +18,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class UserActivityResponse implements Serializable {
 
+    private static final long serialVersionUID = 5313493413859894401L;
+
     @ApiModelProperty(value = "lifetime", position = 1, example = "" +
             "{\n" +
             "    \"total\": {\n" +

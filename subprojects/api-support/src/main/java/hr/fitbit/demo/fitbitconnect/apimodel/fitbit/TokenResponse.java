@@ -1,7 +1,7 @@
 package hr.fitbit.demo.fitbitconnect.apimodel.fitbit;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -11,13 +11,15 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @ApiModel("OAuth2 token information")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class TokenResponse implements Serializable {
+
+    private static final long serialVersionUID = 5313493413859894498L;
 
     @ApiModelProperty(value = "access token", position = 1)
     private String accessToken;

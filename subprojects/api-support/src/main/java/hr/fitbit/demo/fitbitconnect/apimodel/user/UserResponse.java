@@ -21,6 +21,8 @@ import java.util.UUID;
 @AllArgsConstructor
 public class UserResponse implements Serializable {
 
+    private static final long serialVersionUID = 5313493413859894400L;
+
     @ApiModelProperty(value = "user id", position = 1, example = "80264b81-3048-45c8-bc02-5c63a2372d3e")
     private UUID userId;
 

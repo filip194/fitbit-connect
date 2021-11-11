@@ -23,6 +23,8 @@ import java.util.UUID;
 @EqualsAndHashCode
 public class UserEntity implements Serializable {
 
+    private static final long serialVersionUID = 5313493413859894402L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pk_users_generator")
     @SequenceGenerator(name = "pk_users_generator", sequenceName = "pk_users_seq", allocationSize = 1)

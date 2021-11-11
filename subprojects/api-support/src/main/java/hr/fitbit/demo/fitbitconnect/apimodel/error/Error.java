@@ -16,6 +16,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class Error implements Serializable {
 
+    private static final long serialVersionUID = 5313493413859894499L;
+
     private String error;
 }
 
