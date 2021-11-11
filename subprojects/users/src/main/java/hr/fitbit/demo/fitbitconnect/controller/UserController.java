@@ -57,12 +57,7 @@ public class UserController extends ExceptionHandlerController {
         LOG.info("Get user={}", userId);
 
         Optional<User> user = userService.getUser(userId);
-        if (user.isPresent()) {
-            return new ResponseEntity<>(user.get(), HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
+        return user.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     // registration endpoint - unsecured

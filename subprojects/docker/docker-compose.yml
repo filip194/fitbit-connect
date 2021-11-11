@@ -4,7 +4,7 @@ services:
 
   fitbit-connect-postgres-service:
     container_name: fitbit-connect-db
-    image: postgres:13.4 # port 5432 is automatically exposed with this image
+    image: postgres:14 # port 5432 is automatically exposed with this image
     environment:
       - POSTGRES_PORT=${PG_DB_PORT}
       - POSTGRES_USER=${PG_DB_USER}
