@@ -1,6 +1,6 @@
 package hr.fitbit.demo.fitbitconnect.apimodel.user;
 
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import hr.fitbit.demo.fitbitconnect.util.UserType;
 import io.swagger.annotations.ApiModel;
@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 @ApiModel(value = "User register information")
 @Data
 @NoArgsConstructor

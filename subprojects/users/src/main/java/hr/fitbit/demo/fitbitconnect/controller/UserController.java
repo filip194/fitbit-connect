@@ -33,7 +33,7 @@ public class UserController extends ExceptionHandlerController {
 
     private static final Logger LOG = LoggerFactory.getLogger(UserController.class);
 
-    private UserService userService;
+    private final UserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;

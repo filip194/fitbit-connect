@@ -27,9 +27,9 @@ import java.util.stream.Stream;
 @Service
 public class UserService {
 
-    private UserRepository userRepository;
-    private RoleRepository roleRepository;
-    private PasswordEncoder passwordEncoder;
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public UserService(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
@@ -45,11 +45,7 @@ public class UserService {
     @Transactional
     public Optional<User> getUser(UUID userId) {
         final Optional<UserEntity> entity = userRepository.findByUserId(userId);
-        if (entity.isPresent()) {
-            return Optional.of(convertUserEntityToUserModel(entity.get()));
-        } else {
-            return Optional.empty();
-        }
+        return entity.map(this::convertUserEntityToUserModel);
     }
 
     @Transactional
@@ -172,9 +168,8 @@ public class UserService {
 
     @Transactional
     private Collection<RoleEntity> assignRolesAccordingToUserType(UserType userType) {
-        roleRepository.findByName(userType.name()).orElseGet(() -> {
-            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "User type does not exist");
-        });
+        roleRepository.findByName(userType.name())
+                .orElseThrow(() -> new HttpClientErrorException(HttpStatus.BAD_REQUEST, "User type does not exist"));
 
         Collection<RoleEntity> roles = new HashSet<>(3);
 

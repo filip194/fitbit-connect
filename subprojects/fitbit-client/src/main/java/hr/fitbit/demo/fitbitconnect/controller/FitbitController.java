@@ -24,7 +24,7 @@ public class FitbitController extends ExceptionHandlerController {
 
     private static final Logger LOG = LoggerFactory.getLogger(FitbitController.class);
 
-    private FitbitService fitbitService;
+    private final FitbitService fitbitService;
 
     public FitbitController(FitbitService fitbitService) {
         this.fitbitService = fitbitService;

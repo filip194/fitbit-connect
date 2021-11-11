@@ -2,8 +2,6 @@ package hr.fitbit.demo.fitbitconnect.client;
 
 import hr.fitbit.demo.fitbitconnect.apimodel.fitbit.TokenResponse;
 import hr.fitbit.demo.fitbitconnect.apimodel.fitbit.UserActivityResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
@@ -17,8 +15,6 @@ import java.util.List;
 
 @Component
 public class FitbitClient {
-
-    private static final Logger LOG = LoggerFactory.getLogger(FitbitClient.class);
 
     private static final String TOKEN_URI = "/oauth2/token";
     private static final String USER_ACTIVITIES_URI_PART_1 = "/1/user/";
@@ -37,7 +33,7 @@ public class FitbitClient {
     @Value("${fitbit.base.api.uri}")
     private String baseApiUri;
 
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
 
     public FitbitClient() {
         restTemplate = new RestTemplate();

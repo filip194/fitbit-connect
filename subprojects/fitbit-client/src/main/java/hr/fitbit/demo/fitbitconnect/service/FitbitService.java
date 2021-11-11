@@ -26,8 +26,8 @@ public class FitbitService {
 
     private static final int DEFAULT_TOKEN_EXPIRATION_TIME_IN_SECONDS = 28800; // 8 hours
 
-    private FitbitClient fitbitClient;
-    private UserRepository userRepository;
+    private final FitbitClient fitbitClient;
+    private final UserRepository userRepository;
 
     @Getter
     @Setter
@@ -107,9 +107,8 @@ public class FitbitService {
     }
 
     private UserEntity checkIfUserExists(UUID userId) {
-        return userRepository.findByUserId(userId).orElseGet(() -> {
-            throw new HttpClientErrorException(HttpStatus.NOT_FOUND, "User not found");
-        });
+        return userRepository.findByUserId(userId)
+                .orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND, "User not found"));
     }
 
     private void checkIfUserRegisteredOnFitbit(UserEntity userEntity) {
