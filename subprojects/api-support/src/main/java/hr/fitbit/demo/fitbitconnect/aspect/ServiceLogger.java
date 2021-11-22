@@ -1,20 +1,18 @@
 package hr.fitbit.demo.fitbitconnect.aspect;
 
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
+@Slf4j
 @Aspect
 @Component
 public class ServiceLogger {
-
-    private static final Logger LOG = LoggerFactory.getLogger(ServiceLogger.class);
 
     /**
      * Targets all methods in services tagged with @Transactional
@@ -37,7 +35,7 @@ public class ServiceLogger {
         final String methodName = proceedingJoinPoint.getSignature().getName();
         final String args = Arrays.toString(proceedingJoinPoint.getArgs());
 
-        LOG.info("#{}({}): => {} in {} milliseconds", methodName, args, result, end);
+        log.info("#{}({}): => {} in {} milliseconds", methodName, args, result, end);
         return result;
     }
 

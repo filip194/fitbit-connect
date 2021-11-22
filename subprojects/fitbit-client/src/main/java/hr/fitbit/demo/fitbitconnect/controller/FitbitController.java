@@ -7,8 +7,7 @@ import hr.fitbit.demo.fitbitconnect.service.FitbitService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
@@ -17,12 +16,11 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.UUID;
 
+@Slf4j
 @RestController
 @RequestMapping(path = "/api/fitbit")
 @Api(tags = "fitbit")
 public class FitbitController extends ExceptionHandlerController {
-
-    private static final Logger LOG = LoggerFactory.getLogger(FitbitController.class);
 
     private final FitbitService fitbitService;
 
@@ -35,9 +33,9 @@ public class FitbitController extends ExceptionHandlerController {
     @ApiOperation(value = "Get user code from official Fitbit site")
     public ResponseEntity<String> registerUserOnFitbit(HttpServletRequest request, @RequestParam(name = "code") String code) {
         final String userCode = code.replace("#_=_", "");
-        LOG.info("User code={}", userCode);
+        log.info("User code={}", userCode);
         final String user = request.getUserPrincipal().getName();
-        LOG.info("User={}", user);
+        log.info("User={}", user);
 
         fitbitService.setCode(code);
         final boolean registered = fitbitService.registerUserOnFitbit(user);
@@ -54,7 +52,7 @@ public class FitbitController extends ExceptionHandlerController {
     @GetMapping(value = "/refresh-token/{user_id}")
     @ApiOperation(value = "Refresh user token")
     public ResponseEntity<TokenResponse> refreshUserAccessToken(@PathVariable("user_id") @ApiParam(value = "user_id", required = true) UUID userId) {
-        LOG.info("Refresh token for user={}", userId);
+        log.info("Refresh token for user={}", userId);
 
         final TokenResponse response = fitbitService.getRefreshToken(userId);
         return new ResponseEntity<>(response, HttpStatus.OK);
@@ -64,7 +62,7 @@ public class FitbitController extends ExceptionHandlerController {
     @GetMapping(value = "/activities/{user_id}")
     @ApiOperation(value = "Get user activities")
     public ResponseEntity<UserActivityResponse> getUserActivities(@PathVariable("user_id") @ApiParam(value = "user_id", required = true) UUID userId) {
-        LOG.info("Get activities for user={}", userId);
+        log.info("Get activities for user={}", userId);
 
         final UserActivityResponse response = fitbitService.getUserActivities(userId);
         return new ResponseEntity<>(response, HttpStatus.OK);

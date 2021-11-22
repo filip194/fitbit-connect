@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.6</version>
+        <version>2.5.7</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -14,7 +14,7 @@
     <groupId>hr.fitbit.demo.fitbitconnect</groupId>
     <artifactId>fitbit-connect</artifactId>
     <version>1.0.0-FITBIT-CONNECT</version>
-    <name>fitbit connect</name>
+    <name>fitbit Connect</name>
     <packaging>pom</packaging>
 
     <modules>
@@ -170,6 +170,12 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <mainClass>hr.fitbit.demo.fitbitconnect.FitbitConnectApplication</mainClass>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
                 </configuration>
             </plugin>
             <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
@@ -245,7 +251,6 @@
         <spring-cloud-contract-wiremock.version>3.0.4</spring-cloud-contract-wiremock.version>
         <spring-restdocs-restassured.version>2.0.5.RELEASE</spring-restdocs-restassured.version>
         <google-guava.version>31.0.1-jre</google-guava.version>
-        <lombok.version>1.18.20</lombok.version>
         <springfox-swagger.version>3.0.0</springfox-swagger.version>
         <aspectj.version>1.9.7</aspectj.version>
         <checkstyle.version>8.34</checkstyle.version>

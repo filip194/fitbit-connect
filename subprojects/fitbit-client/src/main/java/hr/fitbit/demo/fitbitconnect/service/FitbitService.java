@@ -7,8 +7,7 @@ import hr.fitbit.demo.fitbitconnect.entity.UserEntity;
 import hr.fitbit.demo.fitbitconnect.repository.UserRepository;
 import lombok.Getter;
 import lombok.Setter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -19,10 +18,9 @@ import org.springframework.web.client.HttpServerErrorException;
 import java.util.Optional;
 import java.util.UUID;
 
+@Slf4j
 @Service
 public class FitbitService {
-
-    private static final Logger LOG = LoggerFactory.getLogger(FitbitService.class);
 
     private static final int DEFAULT_TOKEN_EXPIRATION_TIME_IN_SECONDS = 28800; // 8 hours
 
@@ -41,7 +39,7 @@ public class FitbitService {
     @Transactional
     public boolean registerUserOnFitbit(String username) {
         final ResponseEntity<TokenResponse> responseEntity = fitbitClient.requestToken(code);
-        LOG.info("CODE={}", code);
+        log.info("CODE={}", code);
         checkIfStatusCodeOK(responseEntity);
 
         final TokenResponse response = responseEntity.getBody();

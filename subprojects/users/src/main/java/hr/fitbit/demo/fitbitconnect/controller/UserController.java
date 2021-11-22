@@ -10,8 +10,7 @@ import hr.fitbit.demo.fitbitconnect.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -26,12 +25,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+@Slf4j
 @RestController
 @RequestMapping(path = "/api/users", produces = MediaType.APPLICATION_JSON_VALUE)
 @Api(tags = "users")
 public class UserController extends ExceptionHandlerController {
-
-    private static final Logger LOG = LoggerFactory.getLogger(UserController.class);
 
     private final UserService userService;
 
@@ -43,8 +41,8 @@ public class UserController extends ExceptionHandlerController {
     @GetMapping
     @ApiOperation(value = "List all registered users (or search by username)")
     public ResponseEntity<List<User>> getUsers(@RequestParam(name = "username", required = false) String username, HttpServletRequest request, Pageable pageRequest) {
-        LOG.info("List all users");
-        LOG.info("...search by username={}", username == null ? "" : username);
+        log.info("List all users");
+        log.info("...search by username={}", username == null ? "" : username);
 
         final Page<User> usersPage = userService.getUsers(username, pageRequest);
         return PaginationSetup.returnContentAndHeadersWithPagination(usersPage, request);
@@ -54,7 +52,7 @@ public class UserController extends ExceptionHandlerController {
     @GetMapping("/{user_id}")
     @ApiOperation(value = "Get user")
     public ResponseEntity<User> getUser(@PathVariable("user_id") @ApiParam(value = "user id", required = true) UUID userId) {
-        LOG.info("Get user={}", userId);
+        log.info("Get user={}", userId);
 
         Optional<User> user = userService.getUser(userId);
         return user.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
@@ -65,7 +63,7 @@ public class UserController extends ExceptionHandlerController {
     @ApiOperation(value = "Register user")
     public ResponseEntity<UserResponse> registerUser(@Validated @RequestBody @ApiParam(name = "user register information", value = "user register fields", required = true) UserRegister userRegister) {
         UserResponse userResponse = userService.registerUser(userRegister);
-        LOG.info("Register user={}", userResponse.getUserId());
+        log.info("Register user={}", userResponse.getUserId());
         return new ResponseEntity<>(userResponse, HttpStatus.CREATED);
     }
 
@@ -74,7 +72,7 @@ public class UserController extends ExceptionHandlerController {
     @ApiOperation(value = "Update user")
     public ResponseEntity<Void> updateUser(@PathVariable("user_id") @ApiParam(value = "user id", required = true) UUID userId,
                                            @Validated @RequestBody @ApiParam(name = "user update information", value = "user update fields", required = true) UserUpdate userUpdate) {
-        LOG.info("Update user={}", userId);
+        log.info("Update user={}", userId);
 
         boolean updated = userService.updateUser(userId, userUpdate);
         if (updated) {
@@ -89,7 +87,7 @@ public class UserController extends ExceptionHandlerController {
     @DeleteMapping(value = "/{user_id}")
     @ApiOperation(value = "Delete user")
     public ResponseEntity<Void> deleteUser(@PathVariable("user_id") @ApiParam(value = "user id", required = true) UUID userId) {
-        LOG.info("Delete user={}", userId);
+        log.info("Delete user={}", userId);
 
         boolean deleted = userService.deleteUser(userId);
         if (deleted) {
