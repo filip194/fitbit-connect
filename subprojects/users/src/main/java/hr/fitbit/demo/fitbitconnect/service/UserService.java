@@ -39,7 +39,7 @@ public class UserService {
 
     @Transactional
     public Page<User> getUsers(String username, Pageable pageRequest) {
-        return userRepository.findByUsernameContaining(username, pageRequest).map(this::convertUserEntityToUserModel);
+        return userRepository.findByUsernameContainingIgnoreCase(username, pageRequest).map(this::convertUserEntityToUserModel);
     }
 
     @Transactional

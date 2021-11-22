@@ -18,7 +18,7 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer> {
 
     Optional<UserEntity> findByUsername(String username);
 
-    @Query("SELECT u FROM users u WHERE LOWER(:username) = null OR LOWER(u.username) LIKE LOWER(CONCAT('%',:username,'%'))")
-    Page<UserEntity> findByUsernameContaining(@Param("username") String username, Pageable pageRequest);
+    @Query(value = "SELECT u FROM users u WHERE LOWER(CAST(:username AS text)) IS NULL OR u.username LIKE LOWER(CAST(CONCAT('%',:username,'%') AS text))")
+    Page<UserEntity> findByUsernameContainingIgnoreCase(@Param("username") String username, Pageable pageRequest);
 }
 
