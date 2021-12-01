@@ -25,24 +25,24 @@ public class PaginationSetupTest {
     private static final String SCHEME = "http";
     private static final String HOST = "localhost";
     private static final String[] PATH_SEGMENTS = {"api", "pagination", "test"};
-    private static final int PORT = 2345;
+    private static final int PORT = 23456;
     private static final int NUMBER_OF_INTEGERS = 50;
     private static final int PAGE_SIZE = 5;
-    private static final String FIRST_PAGE_URL = "<http://localhost:2345/api/pagination/test?page=1&size=" + PAGE_SIZE + ">;rel=\"next\","
-            + "<http://localhost:2345/api/pagination/test?page=9&size=" + PAGE_SIZE + ">;rel=\"last\"";
-    private static final String LAST_PAGE_URL = "<http://localhost:2345/api/pagination/test?page=0&size=" + PAGE_SIZE + ">;rel=\"first\","
-            + "<http://localhost:2345/api/pagination/test?page=8&size=" + PAGE_SIZE + ">;rel=\"prev\"";
-    private static final String FIFTH_PAGE_URL = "<http://localhost:2345/api/pagination/test?page=5&size=" + PAGE_SIZE + ">;rel=\"next\","
-            + "<http://localhost:2345/api/pagination/test?page=9&size=" + PAGE_SIZE + ">;rel=\"last\","
-            + "<http://localhost:2345/api/pagination/test?page=0&size=" + PAGE_SIZE + ">;rel=\"first\","
-            + "<http://localhost:2345/api/pagination/test?page=3&size=" + PAGE_SIZE + ">;rel=\"prev\"";
+    private static final String FIRST_PAGE_URL = "<http://localhost:23456/api/pagination/test?page=1&size=" + PAGE_SIZE + ">;rel=\"next\","
+            + "<http://localhost:23456/api/pagination/test?page=9&size=" + PAGE_SIZE + ">;rel=\"last\"";
+    private static final String LAST_PAGE_URL = "<http://localhost:23456/api/pagination/test?page=0&size=" + PAGE_SIZE + ">;rel=\"first\","
+            + "<http://localhost:23456/api/pagination/test?page=8&size=" + PAGE_SIZE + ">;rel=\"prev\"";
+    private static final String FIFTH_PAGE_URL = "<http://localhost:23456/api/pagination/test?page=5&size=" + PAGE_SIZE + ">;rel=\"next\","
+            + "<http://localhost:23456/api/pagination/test?page=9&size=" + PAGE_SIZE + ">;rel=\"last\","
+            + "<http://localhost:23456/api/pagination/test?page=0&size=" + PAGE_SIZE + ">;rel=\"first\","
+            + "<http://localhost:23456/api/pagination/test?page=3&size=" + PAGE_SIZE + ">;rel=\"prev\"";
 
     private UriComponentsBuilder uriComponentsBuilder;
     private List<Integer> integerList;
 
     @BeforeEach
     public void init() {
-        // http://localhost:2345/api/pagination/test
+        // http://localhost:23456/api/pagination/test
 
         uriComponentsBuilder = UriComponentsBuilder.newInstance()
                 .scheme(SCHEME)

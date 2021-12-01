@@ -11,8 +11,8 @@
     </parent>
 
     <artifactId>fitbit-client</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <name>fitbit client</name>
+    <version>1.0.0-FITBIT-CONNECT</version>
+    <name>fitbit-client</name>
     <packaging>jar</packaging>
 
 
@@ -61,7 +61,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

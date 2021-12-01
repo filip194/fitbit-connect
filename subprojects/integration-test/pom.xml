@@ -11,8 +11,8 @@
     </parent>
 
     <artifactId>integration-test</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <name>integration test</name>
+    <version>1.0.0-FITBIT-CONNECT</version>
+    <name>integration-test</name>
     <packaging>jar</packaging>
 
 
@@ -26,6 +26,10 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
 
         <!-- fitbit connect -->
