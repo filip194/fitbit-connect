@@ -41,15 +41,13 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-
-        <!-- fitbit connect -->
-        <dependency>
             <groupId>hr.fitbit.demo.fitbitconnect</groupId>
             <artifactId>api-support</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>hr.fitbit.demo.fitbitconnect</groupId>

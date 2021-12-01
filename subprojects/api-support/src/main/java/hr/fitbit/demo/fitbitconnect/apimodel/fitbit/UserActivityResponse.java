@@ -2,8 +2,7 @@ package hr.fitbit.demo.fitbitconnect.apimodel.fitbit;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +11,7 @@ import java.io.Serializable;
 
 @JsonNaming
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@ApiModel("User activity information")
+@Schema(title = "User activity information")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,7 +19,7 @@ public class UserActivityResponse implements Serializable {
 
     private static final long serialVersionUID = 5313493413859894401L;
 
-    @ApiModelProperty(value = "lifetime", position = 1, example = "" +
+    @Schema(name = "lifetime", example = "" +
             "{\n" +
             "    \"total\": {\n" +
             "      \"activeScore\": -1,\n" +

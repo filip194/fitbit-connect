@@ -2,7 +2,7 @@ package hr.fitbit.demo.fitbitconnect.apimodel.fitbit;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,16 +14,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Activity {
 
-    @ApiModelProperty(value = "active score", position = 1, example = "-1")
+    @Schema(name = "active score", example = "-1")
     protected Integer activeScore;
 
-    @ApiModelProperty(value = "calories out", position = 2, example = "-1")
+    @Schema(name = "calories out", example = "-1")
     protected Integer caloriesOut;
 
-    @ApiModelProperty(value = "distance", position = 3, example = "0")
+    @Schema(name = "distance", example = "0")
     protected Integer distance;
 
-    @ApiModelProperty(value = "steps", position = 4, example = "0")
+    @Schema(name = "steps", example = "0")
     protected Integer steps;
 }
 
