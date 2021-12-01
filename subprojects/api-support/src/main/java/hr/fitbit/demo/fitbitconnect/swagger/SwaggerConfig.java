@@ -16,13 +16,12 @@ import org.springframework.hateoas.mediatype.collectionjson.CollectionJsonLinkDi
 import org.springframework.hateoas.server.LinkRelationProvider;
 import org.springframework.hateoas.server.core.DefaultLinkRelationProvider;
 import org.springframework.plugin.core.SimplePluginRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
-public class SwaggerConfig implements WebMvcConfigurer {
+public class SwaggerConfig {
 
     public static final String USERS_GROUP_NAME = "users";
     public static final String FITBIT_GROUP_NAME = "fitbit";
