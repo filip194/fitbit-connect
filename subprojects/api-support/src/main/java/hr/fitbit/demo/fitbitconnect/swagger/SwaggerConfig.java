@@ -44,11 +44,17 @@ public class SwaggerConfig {
         return new DefaultLinkRelationProvider();
     }
 
+    /*
+    Can be done in application.properties also:
+    springdoc.group-configs[0].group=users
+    springdoc.group-configs[0].paths-to-match=/api/users/**
+    springdoc.group-configs[0].packages-to-scan=hr.fitbit.demo.fitbitconnect.users
+     */
     @Bean
     public GroupedOpenApi userApi() {
         return GroupedOpenApi.builder()
                 .group(USERS_GROUP_NAME)
-                .pathsToMatch("/api/users**")
+                .pathsToMatch("/api/users/**")
                 .build();
     }
 
@@ -56,7 +62,7 @@ public class SwaggerConfig {
     public GroupedOpenApi fitbitApi() {
         return GroupedOpenApi.builder()
                 .group(FITBIT_GROUP_NAME)
-                .pathsToMatch("/api/fitbit**")
+                .pathsToMatch("/api/fitbit/**")
                 .pathsToExclude("/api/fitbit/redirect")
                 .build();
     }
@@ -64,6 +70,7 @@ public class SwaggerConfig {
     @Bean
     public OpenAPI apiInfo() {
         return new OpenAPI()
+//                .addServersItem(new Server().url("http://localhost:9090"))
                 .components(new Components()
                         .addSecuritySchemes("basicScheme", new SecurityScheme()
                                 .type(SecurityScheme.Type.HTTP).scheme("basic")
@@ -71,7 +78,7 @@ public class SwaggerConfig {
                 )
                 .info(new Info()
                         .title("Fitbit Connect API")
-                        .description("This is a training Spring Boot 2 multi-module Maven application with connection to Fitbit API over OAuth2")
+                        .description("Spring Boot 2 multi-module Maven application with connection to Fitbit API over OAuth2")
                         .version(appReleaseVersion + "-" + appBuildVersion)
                         .license(new License().name("MIT License").url("https://mit-license.org/"))
                 )

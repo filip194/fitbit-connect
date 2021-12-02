@@ -1,6 +1,6 @@
 # Fitbit Connect (Spring Boot 2 multi-module Fitbit REST client)
 
-This is a training Spring Boot 2 multi-module Maven application with connection to Fitbit API over OAuth2.
+Spring Boot 2 multi-module Maven application with connection to Fitbit API over OAuth2.
 
 ## Table of contents
 
@@ -41,10 +41,10 @@ API documentation available at e.g.: http://localhost:9090/docs/doc_index.html.
 
 For now, docs are manually pasted into static resources.
 
-### Swagger-UI
+### Swagger UI
 
-http://localhost:9090/swagger-ui/ is the base url for the API.
-Swagger is available only to admin [admin, 123].
+http://localhost:9090/swagger-ui.html is the base url for the API.
+Swagger is available only to admin. Credentials are: [admin, 123].
 
 ### Storage
 
@@ -52,7 +52,7 @@ Fitbit Connect is using H2 in-memory database for developing purposes, and Postg
 purposes. This is just an example of different databases being used for different scenarios.
 Also, Flyway database migration is used to show how to migrate databases between versions/updates.
 
-Data stored in database can be obtained by visiting swagger (e.g. http://localhost:9090/swagger-ui/), and for
+Data stored in database can be obtained by visiting Swagger (e.g. http://localhost:9090/swagger-ui.html), and for
 example, getting users can be done searching by username, and/or combined with paging (page size and page number).
 Data can also be sorted ASC or DESC by username.
 
@@ -72,15 +72,15 @@ Security is implemented as basic security with usage of Bcrypt for storing passw
 - OAuth2
 - Lombok
 - Database layer:
+    - Flyway database migration
     - H2 in-memory database
     - PostgreSQL database
-    - Flyway database migration
 - Virtualization:
     - Docker (used with PostgreSQL)
 - AOP:
     - AspectJ (used for service logging)
 - API exposure:
-    - SpringFox Swagger OpenAPI Specification 3
+    - SpringDoc Swagger OpenAPI Specification 3
 - Documentation:
     - Spring REST Docs (Asciidoctor)
 - Testing:

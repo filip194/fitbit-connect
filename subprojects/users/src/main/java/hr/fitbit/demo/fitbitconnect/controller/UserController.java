@@ -54,7 +54,7 @@ public class UserController extends ExceptionHandlerController {
     public ResponseEntity<User> getUser(@PathVariable("user_id") @Parameter(name = "user id", required = true) UUID userId) {
         log.info("Get user={}", userId);
 
-        Optional<User> user = userService.getUser(userId);
+        final Optional<User> user = userService.getUser(userId);
         return user.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
@@ -62,7 +62,7 @@ public class UserController extends ExceptionHandlerController {
     @PostMapping(value = "/register", consumes = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Register user")
     public ResponseEntity<UserResponse> registerUser(@Validated @RequestBody @Parameter(name = "user register information", description = "user register fields", required = true) UserRegister userRegister) {
-        UserResponse userResponse = userService.registerUser(userRegister);
+        final UserResponse userResponse = userService.registerUser(userRegister);
         log.info("Register user={}", userResponse.getUserId());
         return new ResponseEntity<>(userResponse, HttpStatus.CREATED);
     }
