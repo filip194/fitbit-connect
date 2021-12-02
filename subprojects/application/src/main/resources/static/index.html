@@ -3,17 +3,22 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Fitbit Connect</title>
+    <title>Fitbit-Connect</title>
     <meta name="description" content="Fitbit Connect - create Spring Boot demo app with OAuth2 authentication">
     <meta name="author" content="filip194">
 </head>
 
 <body>
-<h2>Welcome</h2>
-<h3>Follow the link to connect you account to Fitbit:</h3>
+<h2>Welcome to Fitbit-Connect</h2>
+<h3>Follow the link to connect your account to Fitbit:</h3>
 <p>
-    <a href="https://www.fitbit.com/oauth2/authorize?response_type=code&client_id=&redirect_uri=http%3A%2F%2Flocalhost%3A9090%2Fapi%2Ffitbit%2Fredirect&scope=activity%20heartrate%20location%20nutrition%20profile%20settings%20sleep%20social%20weight&expires_in=28800">Register
-        on Fitbit</a>
+    <!--After 'client_id=' insert your application ID. Application should be registered on Fitbit.-->
+    <a href="https://www.fitbit.com/oauth2/authorize?response_type=code&client_id=<INSERT_APPLICATION_ID_HERE>&redirect_uri=http%3A%2F%2Flocalhost%3A9090%2Fapi%2Ffitbit%2Fredirect&scope=activity%20heartrate%20location%20nutrition%20profile%20settings%20sleep%20social%20weight&expires_in=28800">
+        Register on Fitbit</a>
+
+    <p>
+        <h5><strong style="color:red;">NOTE:</strong> To make Fitbit registration work, insert <b>client_id</b> in the link above, inside project's application module, in <i>/resources/static/index.html</i> file</h5>
+    </p>
 </p>
 </body>
 </html>

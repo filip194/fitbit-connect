@@ -30,7 +30,7 @@ public class FitbitController extends ExceptionHandlerController {
 
     @Secured(UserRole.AUTHENTICATED_USER_ROLE)
     @GetMapping("/redirect")
-    @Operation(summary = "Get user code from official Fitbit site")
+    @Operation(summary = "Get code from official Fitbit site")
     public ResponseEntity<String> registerUserOnFitbit(HttpServletRequest request, @RequestParam(name = "code") String code) {
         final String userCode = code.replace("#_=_", "");
         log.info("User code={}", userCode);
@@ -50,6 +50,7 @@ public class FitbitController extends ExceptionHandlerController {
 
     @Secured(UserRole.ADMIN_ROLE)
     @GetMapping(value = "/refresh-token/{user_id}")
+    @ResponseStatus(code = HttpStatus.OK)
     @Operation(summary = "Refresh user token")
     public ResponseEntity<TokenResponse> refreshUserAccessToken(@PathVariable("user_id") @Parameter(name = "user_id", required = true) UUID userId) {
         log.info("Refresh token for user={}", userId);
@@ -60,6 +61,7 @@ public class FitbitController extends ExceptionHandlerController {
 
     @Secured(UserRole.ADMIN_ROLE)
     @GetMapping(value = "/activities/{user_id}")
+    @ResponseStatus(code = HttpStatus.OK)
     @Operation(summary = "Get user activities")
     public ResponseEntity<UserActivityResponse> getUserActivities(@PathVariable("user_id") @Parameter(name = "user_id", required = true) UUID userId) {
         log.info("Get activities for user={}", userId);
