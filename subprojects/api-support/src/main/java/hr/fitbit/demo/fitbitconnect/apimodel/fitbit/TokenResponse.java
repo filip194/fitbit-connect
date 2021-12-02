@@ -3,8 +3,7 @@ package hr.fitbit.demo.fitbitconnect.apimodel.fitbit;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +12,7 @@ import java.io.Serializable;
 
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@ApiModel("OAuth2 token information")
+@Schema(title = "OAuth2 token information")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,22 +20,22 @@ public class TokenResponse implements Serializable {
 
     private static final long serialVersionUID = 5313493413859894498L;
 
-    @ApiModelProperty(value = "access token", position = 1)
+    @Schema(name = "access token")
     private String accessToken;
 
-    @ApiModelProperty(value = "refresh token", position = 2)
+    @Schema(name = "refresh token")
     private String refreshToken;
 
-    @ApiModelProperty(value = "token type", position = 3, example = "Bearer")
+    @Schema(name = "token type", example = "Bearer")
     private String tokenType;
 
-    @ApiModelProperty(value = "fibit user id", position = 4, example = "ABCDE1")
+    @Schema(name = "fibit user id", example = "ABCDE1")
     private String userId;
 
-    @ApiModelProperty(value = "expires in", position = 5, example = "28800")
+    @Schema(name = "expires in", example = "28800")
     private Integer expiresIn;
 
-    @ApiModelProperty(value = "scope of user tracking", position = 6, example = "activity sleep")
+    @Schema(name = "scope of user tracking", example = "activity sleep")
     private String scope;
 
 }

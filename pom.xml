@@ -6,9 +6,17 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.0</version>
+        <version>2.6.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
+    <repositories>
+        <repository>
+            <id>jcenter-snapshots</id>
+            <name>jcenter</name>
+            <url>http://oss.jfrog.org/artifactory/oss-snapshot-local/</url>
+        </repository>
+    </repositories>
 
     <description>Fitbit Connect</description>
     <groupId>hr.fitbit.demo.fitbitconnect</groupId>
@@ -16,6 +24,35 @@
     <version>1.0.0-FITBIT-CONNECT</version>
     <name>fitbit-connect</name>
     <packaging>pom</packaging>
+
+    <properties>
+        <java.version>11</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- dependency versions -->
+        <rest-assured.version>4.4.0</rest-assured.version>
+        <groovy.version>3.0.9</groovy.version>
+        <wiremock-jre8-standalone.version>2.31.0</wiremock-jre8-standalone.version>
+        <spring-cloud-contract-wiremock.version>3.0.4</spring-cloud-contract-wiremock.version>
+        <spring-restdocs-restassured.version>2.0.5.RELEASE</spring-restdocs-restassured.version>
+        <springdoc-openapi.version>1.5.13</springdoc-openapi.version>
+        <aspectj.version>1.9.7</aspectj.version>
+        <checkstyle.version>8.34</checkstyle.version>
+
+        <!-- maven plugin versions -->
+        <asciidoctor-maven-plugin.version>2.2.1</asciidoctor-maven-plugin.version>
+        <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
+        <maven-project-info-reports-plugin.version>3.1.2</maven-project-info-reports-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version>
+        <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
+        <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
+        <maven-resources-plugin>3.2.0</maven-resources-plugin>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven-install-plugin.version>3.0.0-M1</maven-install-plugin.version>
+        <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
+        <maven-site-plugin.version>3.9.1</maven-site-plugin.version>
+    </properties>
 
     <modules>
         <module>subprojects/api-support</module>
@@ -30,7 +67,44 @@
     </modules>
 
     <dependencyManagement>
+        <!--LIBRARIES-->
         <dependencies>
+            <!--        should be used to enable Swagger through Spring Docs-->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-ui</artifactId>
+                <version>${springdoc-openapi.version}</version>
+            </dependency>
+            <!--        should be used if using spring-security-->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-security</artifactId>
+                <version>${springdoc-openapi.version}</version>
+            </dependency>
+            <!--        should be used with spring-boot-hateoas-->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-hateoas</artifactId>
+                <version>${springdoc-openapi.version}</version>
+            </dependency>
+            <!--        should be used with spring-data-rest-->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-data-rest</artifactId>
+                <version>${springdoc-openapi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjrt</artifactId>
+                <version>${aspectj.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectj.version}</version>
+            </dependency>
+
+            <!--MODULES-->
             <dependency>
                 <groupId>hr.fitbit.demo.fitbitconnect</groupId>
                 <artifactId>application</artifactId>
@@ -238,35 +312,5 @@
             </plugin>
         </plugins>
     </build>
-
-    <properties>
-        <java.version>11</java.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <!-- dependency versions -->
-        <rest-assured.version>4.4.0</rest-assured.version>
-        <groovy.version>3.0.9</groovy.version>
-        <wiremock-jre8-standalone.version>2.31.0</wiremock-jre8-standalone.version>
-        <spring-cloud-contract-wiremock.version>3.0.4</spring-cloud-contract-wiremock.version>
-        <spring-restdocs-restassured.version>2.0.5.RELEASE</spring-restdocs-restassured.version>
-        <google-guava.version>31.0.1-jre</google-guava.version>
-        <springfox-swagger.version>3.0.0</springfox-swagger.version>
-        <aspectj.version>1.9.7</aspectj.version>
-        <checkstyle.version>8.34</checkstyle.version>
-
-        <!-- maven plugin versions -->
-        <asciidoctor-maven-plugin.version>2.2.1</asciidoctor-maven-plugin.version>
-        <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
-        <maven-project-info-reports-plugin.version>3.1.2</maven-project-info-reports-plugin.version>
-        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
-        <maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version>
-        <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
-        <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
-        <maven-resources-plugin>3.2.0</maven-resources-plugin>
-        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-        <maven-install-plugin.version>3.0.0-M1</maven-install-plugin.version>
-        <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
-        <maven-site-plugin.version>3.9.1</maven-site-plugin.version>
-    </properties>
 
 </project>

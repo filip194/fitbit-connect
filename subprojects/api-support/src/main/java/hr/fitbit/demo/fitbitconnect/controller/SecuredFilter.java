@@ -19,7 +19,7 @@ public class SecuredFilter implements Filter {
 
         boolean secured = servletRequest.isSecure();
 
-        HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
+        final HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
         httpServletResponse.setHeader("X-REQUEST-SECURED", String.valueOf(secured));
         filterChain.doFilter(servletRequest, servletResponse);
     }

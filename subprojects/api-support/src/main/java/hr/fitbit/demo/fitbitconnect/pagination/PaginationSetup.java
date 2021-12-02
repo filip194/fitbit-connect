@@ -31,7 +31,7 @@ public class PaginationSetup {
     public static <T> ResponseEntity<List<T>> returnContentAndHeadersWithPagination(
             final Page<T> page, final HttpServletRequest request) {
 
-        Objects.requireNonNull(page, "page should not be null");
+        Objects.requireNonNull(page, "Page<T> object should not be null");
         return ResponseEntity
                 .ok()
                 .headers(createHeadersWithPagination(ServletUriComponentsBuilder.fromRequest(request), page))
