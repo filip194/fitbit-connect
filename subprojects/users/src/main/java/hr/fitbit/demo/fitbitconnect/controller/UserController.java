@@ -11,8 +11,11 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -39,8 +42,10 @@ public class UserController extends ExceptionHandlerController {
 
     @Secured(UserRole.AUTHENTICATED_USER_ROLE)
     @GetMapping
+    @ResponseStatus(code = HttpStatus.OK)
     @Operation(summary = "List all registered users (or search by username)")
-    public ResponseEntity<List<User>> getUsers(@RequestParam(name = "username", required = false) String username, HttpServletRequest request, Pageable pageRequest) {
+    public ResponseEntity<List<User>> getUsers(@RequestParam(name = "username", required = false) String username, HttpServletRequest request,
+                                               @ParameterObject @PageableDefault(page = 0, size = 100, sort = "username", direction = Sort.Direction.ASC) Pageable pageRequest) {
         log.info("List all users");
         log.info("...search by username={}", username == null ? "" : username);
 
@@ -50,8 +55,9 @@ public class UserController extends ExceptionHandlerController {
 
     @Secured(UserRole.AUTHENTICATED_USER_ROLE)
     @GetMapping("/{user_id}")
+    @ResponseStatus(code = HttpStatus.OK)
     @Operation(summary = "Get user")
-    public ResponseEntity<User> getUser(@PathVariable("user_id") @Parameter(name = "user id", required = true) UUID userId) {
+    public ResponseEntity<User> getUser(@PathVariable("user_id") @Parameter(name = "user_id", required = true) UUID userId) {
         log.info("Get user={}", userId);
 
         final Optional<User> user = userService.getUser(userId);
@@ -60,8 +66,9 @@ public class UserController extends ExceptionHandlerController {
 
     // registration endpoint - unsecured
     @PostMapping(value = "/register", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(code = HttpStatus.CREATED)
     @Operation(summary = "Register user")
-    public ResponseEntity<UserResponse> registerUser(@Validated @RequestBody @Parameter(name = "user register information", description = "user register fields", required = true) UserRegister userRegister) {
+    public ResponseEntity<UserResponse> registerUser(@Validated @RequestBody UserRegister userRegister) {
         final UserResponse userResponse = userService.registerUser(userRegister);
         log.info("Register user={}", userResponse.getUserId());
         return new ResponseEntity<>(userResponse, HttpStatus.CREATED);
@@ -69,9 +76,10 @@ public class UserController extends ExceptionHandlerController {
 
     @Secured(UserRole.ADMIN_ROLE)
     @PutMapping(value = "/{user_id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(code = HttpStatus.OK)
     @Operation(summary = "Update user")
-    public ResponseEntity<Void> updateUser(@PathVariable("user_id") @Parameter(name = "user id", required = true) UUID userId,
-                                           @Validated @RequestBody @Parameter(name = "user update information", description = "user update fields", required = true) UserUpdate userUpdate) {
+    public ResponseEntity<Void> updateUser(@PathVariable("user_id") @Parameter(name = "user_id", required = true) UUID userId,
+                                           @Validated @RequestBody UserUpdate userUpdate) {
         log.info("Update user={}", userId);
 
         boolean updated = userService.updateUser(userId, userUpdate);
@@ -85,8 +93,9 @@ public class UserController extends ExceptionHandlerController {
 
     @Secured(UserRole.ADMIN_ROLE)
     @DeleteMapping(value = "/{user_id}")
+    @ResponseStatus(code = HttpStatus.OK)
     @Operation(summary = "Delete user")
-    public ResponseEntity<Void> deleteUser(@PathVariable("user_id") @Parameter(name = "user id", required = true) UUID userId) {
+    public ResponseEntity<Void> deleteUser(@PathVariable("user_id") @Parameter(name = "user_id", required = true) UUID userId) {
         log.info("Delete user={}", userId);
 
         boolean deleted = userService.deleteUser(userId);
