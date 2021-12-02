@@ -39,6 +39,7 @@ public class SwaggerConfig {
         return new LinkDiscoverers(SimplePluginRegistry.of(plugins));
     }
 
+    // [Spring Boot 2.6.1 and SpringDoc 1.5.13] Fixes the problem: bean of type LinkRelationProvider is missing
     @Bean
     public LinkRelationProvider linkRelationProvider() {
         return new DefaultLinkRelationProvider();

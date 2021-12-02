@@ -10,14 +10,6 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <repositories>
-        <repository>
-            <id>jcenter-snapshots</id>
-            <name>jcenter</name>
-            <url>http://oss.jfrog.org/artifactory/oss-snapshot-local/</url>
-        </repository>
-    </repositories>
-
     <description>Fitbit Connect</description>
     <groupId>hr.fitbit.demo.fitbitconnect</groupId>
     <artifactId>fitbit-connect</artifactId>
@@ -27,6 +19,7 @@
 
     <properties>
         <java.version>11</java.version>
+        <spring-boot.version>2.6.1</spring-boot.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- dependency versions -->
@@ -37,7 +30,7 @@
         <spring-restdocs-restassured.version>2.0.5.RELEASE</spring-restdocs-restassured.version>
         <springdoc-openapi.version>1.5.13</springdoc-openapi.version>
         <aspectj.version>1.9.7</aspectj.version>
-        <checkstyle.version>8.34</checkstyle.version>
+        <checkstyle.version>9.2</checkstyle.version>
 
         <!-- maven plugin versions -->
         <asciidoctor-maven-plugin.version>2.2.1</asciidoctor-maven-plugin.version>
