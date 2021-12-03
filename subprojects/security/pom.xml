@@ -26,10 +26,6 @@
         <!-- fitbit connect -->
         <dependency>
             <groupId>hr.fitbit.demo.fitbitconnect</groupId>
-            <artifactId>api-support</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>hr.fitbit.demo.fitbitconnect</groupId>
             <artifactId>dao</artifactId>
         </dependency>
     </dependencies>
