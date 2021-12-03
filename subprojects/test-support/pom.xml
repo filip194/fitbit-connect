@@ -12,9 +12,7 @@
     </parent>
 
     <artifactId>test-support</artifactId>
-    <version>1.0.0-FITBIT-CONNECT</version>
     <name>test-support</name>
-    <packaging>jar</packaging>
 
     <dependencies>
         <!-- spring boot -->

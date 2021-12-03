@@ -1,4 +1,4 @@
-import hr.fitbit.demo.fitbitconnect.util.UserType;
+import hr.fitbit.demo.fitbitconnect.apisupport.apimodel.user.UserType;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

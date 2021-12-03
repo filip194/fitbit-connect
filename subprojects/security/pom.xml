@@ -11,10 +11,7 @@
     </parent>
 
     <artifactId>security</artifactId>
-    <version>1.0.0-FITBIT-CONNECT</version>
     <name>security</name>
-    <packaging>jar</packaging>
-
 
     <dependencies>
         <!-- spring boot -->

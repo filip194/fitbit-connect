@@ -11,10 +11,7 @@
     </parent>
 
     <artifactId>fitbit-client</artifactId>
-    <version>1.0.0-FITBIT-CONNECT</version>
     <name>fitbit-client</name>
-    <packaging>jar</packaging>
-
 
     <dependencies>
         <!-- spring boot -->

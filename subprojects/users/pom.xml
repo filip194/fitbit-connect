@@ -11,10 +11,7 @@
     </parent>
 
     <artifactId>users</artifactId>
-    <version>1.0.0-FITBIT-CONNECT</version>
     <name>users</name>
-    <packaging>jar</packaging>
-
 
     <dependencies>
         <!-- spring boot -->

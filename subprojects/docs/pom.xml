@@ -12,9 +12,7 @@
     </parent>
 
     <artifactId>docs</artifactId>
-    <version>1.0.0-FITBIT-CONNECT</version>
     <name>docs</name>
-    <packaging>jar</packaging>
 
 
     <dependencies>

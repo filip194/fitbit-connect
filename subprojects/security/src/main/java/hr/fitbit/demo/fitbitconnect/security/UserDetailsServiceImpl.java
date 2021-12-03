@@ -1,9 +1,9 @@
 package hr.fitbit.demo.fitbitconnect.security;
 
-import hr.fitbit.demo.fitbitconnect.entity.RoleEntity;
-import hr.fitbit.demo.fitbitconnect.entity.UserEntity;
-import hr.fitbit.demo.fitbitconnect.repository.UserRepository;
-import hr.fitbit.demo.fitbitconnect.util.UserType;
+import hr.fitbit.demo.fitbitconnect.dao.entity.RoleEntity;
+import hr.fitbit.demo.fitbitconnect.dao.entity.UserEntity;
+import hr.fitbit.demo.fitbitconnect.dao.repository.UserRepository;
+import hr.fitbit.demo.fitbitconnect.apisupport.apimodel.user.UserType;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

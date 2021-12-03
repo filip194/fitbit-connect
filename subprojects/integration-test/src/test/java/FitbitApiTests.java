@@ -1,10 +1,10 @@
 import com.fasterxml.jackson.core.JsonProcessingException;
-import hr.fitbit.demo.fitbitconnect.apimodel.fitbit.TokenResponse;
-import hr.fitbit.demo.fitbitconnect.apimodel.fitbit.UserActivityResponse;
-import hr.fitbit.demo.fitbitconnect.client.FitbitClient;
-import hr.fitbit.demo.fitbitconnect.fixture.FitbitFixture;
-import hr.fitbit.demo.fitbitconnect.fixture.TokenFixture;
-import hr.fitbit.demo.fitbitconnect.util.UserType;
+import hr.fitbit.demo.fitbitconnect.apisupport.apimodel.fitbit.TokenResponse;
+import hr.fitbit.demo.fitbitconnect.apisupport.apimodel.fitbit.UserActivityResponse;
+import hr.fitbit.demo.fitbitconnect.fitbitclient.FitbitClient;
+import hr.fitbit.demo.fitbitconnect.testsupport.fixture.FitbitFixture;
+import hr.fitbit.demo.fitbitconnect.testsupport.fixture.TokenFixture;
+import hr.fitbit.demo.fitbitconnect.apisupport.apimodel.user.UserType;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

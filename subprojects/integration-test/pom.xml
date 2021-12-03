@@ -11,10 +11,7 @@
     </parent>
 
     <artifactId>integration-test</artifactId>
-    <version>1.0.0-FITBIT-CONNECT</version>
     <name>integration-test</name>
-    <packaging>jar</packaging>
-
 
     <dependencies>
         <!-- spring boot -->

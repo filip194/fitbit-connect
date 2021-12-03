@@ -12,9 +12,7 @@
     </parent>
 
     <artifactId>dao</artifactId>
-    <version>1.0.0-FITBIT-CONNECT</version>
     <name>dao</name>
-    <packaging>jar</packaging>
 
     <dependencies>
         <!-- spring boot -->
