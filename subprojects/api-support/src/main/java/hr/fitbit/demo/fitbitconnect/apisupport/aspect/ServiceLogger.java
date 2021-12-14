@@ -1,14 +1,13 @@
 package hr.fitbit.demo.fitbitconnect.apisupport.aspect;
 
-import java.util.Arrays;
-
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
-import lombok.extern.slf4j.Slf4j;
+import java.util.Arrays;
 
 @Slf4j
 @Aspect
@@ -16,11 +15,11 @@ import lombok.extern.slf4j.Slf4j;
 public class ServiceLogger {
 
     /**
-     * Targets all methods in services tagged with @Transactional
+     * Targets all methods in services annotated with @Transactional
      */
     private final static String SERVICE_TRANSACTIONAL_METHOD_POINTCUT_EXPRESSION =
-            "execution(public * hr.fitbit.demo.fitbitconnect.users.service.UserService.*(..)) && @annotation(org.springframework.transaction.annotation.Transactional) || " +
-                    "execution(public * hr.fitbit.demo.fitbitconnect.fitbitclient.service.FitbitService.*(..)) && @annotation(org.springframework.transaction.annotation.Transactional)";
+            "execution(public * hr.fitbit.demo.fitbitconnect.users.service.UserService..*(..)) && @annotation(org.springframework.transaction.annotation.Transactional) || " +
+                    "execution(public * hr.fitbit.demo.fitbitconnect.fitbitclient.service.FitbitService..*(..)) && @annotation(org.springframework.transaction.annotation.Transactional)";
 
     @Pointcut(SERVICE_TRANSACTIONAL_METHOD_POINTCUT_EXPRESSION)
     public void serviceTransactional() {

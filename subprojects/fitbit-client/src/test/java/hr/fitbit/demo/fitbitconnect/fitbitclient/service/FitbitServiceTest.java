@@ -2,26 +2,27 @@ package hr.fitbit.demo.fitbitconnect.fitbitclient.service;
 
 import hr.fitbit.demo.fitbitconnect.apisupport.apimodel.fitbit.TokenResponse;
 import hr.fitbit.demo.fitbitconnect.apisupport.apimodel.fitbit.UserActivityResponse;
-import hr.fitbit.demo.fitbitconnect.fitbitclient.FitbitClient;
+import hr.fitbit.demo.fitbitconnect.apisupport.apimodel.user.UserType;
 import hr.fitbit.demo.fitbitconnect.dao.entity.RoleEntity;
 import hr.fitbit.demo.fitbitconnect.dao.entity.UserEntity;
-import hr.fitbit.demo.fitbitconnect.testsupport.fixture.FitbitFixture;
 import hr.fitbit.demo.fitbitconnect.dao.fixture.RoleFixture;
 import hr.fitbit.demo.fitbitconnect.dao.fixture.UserFixture;
 import hr.fitbit.demo.fitbitconnect.dao.repository.RoleRepository;
 import hr.fitbit.demo.fitbitconnect.dao.repository.UserRepository;
-import hr.fitbit.demo.fitbitconnect.apisupport.apimodel.user.UserType;
+import hr.fitbit.demo.fitbitconnect.fitbitclient.FitbitClient;
+import hr.fitbit.demo.fitbitconnect.testsupport.TestApplication;
+import hr.fitbit.demo.fitbitconnect.testsupport.fixture.FitbitFixture;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.jdbc.EmbeddedDatabaseConnection;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
@@ -30,9 +31,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.when;
 
-@SpringBootTest
-@AutoConfigureTestDatabase
-@ExtendWith(SpringExtension.class)
+@AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
+@ContextConfiguration(classes = TestApplication.class)
+@SpringBootTest(properties = {
+        "spring.sql.init.url=jdbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=FALSE",
+        "spring.sql.init.driver-class-name=org.h2.Driver",
+        "spring.sql.init.username=user",
+        "spring.sql.init.password=pass",
+        "spring.datasource.initialize=true",
+        "spring.jpa.hibernate.ddl-auto=update",
+        "spring.jpa.show-sql=true"
+}
+)
 public class FitbitServiceTest {
 
     @Autowired

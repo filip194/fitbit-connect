@@ -168,7 +168,7 @@
                 <version>${spring-cloud-contract-wiremock.version}</version>
             </dependency>
 
-            <!--MODULES-->
+            <!--LOCAL-->
             <dependency>
                 <groupId>hr.fitbit.demo.fitbitconnect</groupId>
                 <artifactId>application</artifactId>
