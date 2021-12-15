@@ -36,7 +36,6 @@ import static org.assertj.core.api.Assertions.assertThat;
         "spring.sql.init.driver-class-name=org.h2.Driver",
         "spring.sql.init.username=user",
         "spring.sql.init.password=pass",
-        "spring.datasource.initialize=true",
         "spring.jpa.hibernate.ddl-auto=update",
         "spring.jpa.show-sql=true"
 }
